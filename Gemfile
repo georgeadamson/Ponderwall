@@ -31,3 +31,7 @@ gem 'sqlite3'
 # end
 
 gem "active_scaffold_vho"
+
+group :development, :test do
+  gem "heroku"
+end

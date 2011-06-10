@@ -1,11 +1,17 @@
 (function($){
 	
+	// Ensure we have a keyword for searching tweets:
+	if( !window.location.hash || window.location.hash == '#' ){
+	  window.location.hash = 'banana';
+	}
+
+
 	$(function(){
 
 		var feed = {
 
 			data    : { results: [] },
-			keyword : window.location.hash || 'twitter',
+			keyword : window.location.hash,
 			url     : "http://search.twitter.com/search.json?callback=?",
 
 
