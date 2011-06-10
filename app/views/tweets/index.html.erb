@@ -13,7 +13,7 @@
     <div class="text">{{html helpers.tweetify.clean(text) }}</div>
     <div class="from_user">{{html helpers.formatUsername(from_user) }}</div>
     <div class="profile_image"><img src="${profile_image_url}"/></div>
-    <div class="created_at">${created_at}</div>
+    <div class="created_at">{{html helpers.formatDate(created_at) }}</div>
   </div>
 
 </script>
@@ -26,6 +26,7 @@
 
 </script>
 
+<!-- UNUSED: -->
 <script type="text/x-jquery-tmpl" id="template-for-tweets-container">
 
   {{each(i,tweet) results}}

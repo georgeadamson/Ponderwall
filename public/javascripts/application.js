@@ -2,8 +2,12 @@
 	
 	// Ensure we have a keyword for searching tweets:
 	if( !window.location.hash || window.location.hash == '#' ){
-	  window.location.hash = 'banana';
+	  window.location.hash = 'dddsw';
 	}
+
+  // Prevent my console calls from causing error when Firebug not installed:
+  var console = window.console || { log:function(){} };
+
 
 
 	$(function(){
@@ -11,7 +15,7 @@
 		var feed = {
 
 			data    : { results: [] },
-			keyword : window.location.hash,
+			keyword : window.location.hash.replace(/^#/,''),
 			url     : "http://search.twitter.com/search.json?callback=?",
 
 
@@ -84,23 +88,22 @@
 
 			getLatestTweets : function(){
 
-				var data = { q: feed.keyword, since_id: feed.data.max_id };
+				var params = { q: feed.keyword, since_id: feed.data.max_id };
 
-				$.getJSON( feed.url, data, feed.gotLatestTweets );                      // console.log( 'getLatestTweets:', feed.url, data );
+				$.getJSON( feed.url, params, feed.gotLatestTweets );                      // console.log( 'getLatestTweets:', feed.url, data );
 
 			},
 
 
 			gotLatestTweets : function(data){
 
-        // Store the latest data in our feed object:
-				//feed.data = data;                                                       console.log( 'gotLatestTweets:', data.results && data.results.length, data );
-
         var queueBefore = feed.data.results.length;
 
-        feed.data.results = feed.data.results.concat( data.results );
+        // Store the latest data in our feed object:
+        feed.data.results = feed.data.results.concat( data.results );           console.log( 'Queue was:', queueBefore, ', added:', data.results.length, ', now:', feed.data.results.length )
 
-        console.log( 'Queue was:', queueBefore, ', added:', data.results.length, ', now:', feed.data.results.length )
+        // Note the last tweet id that we've added to the queue:
+        feed.data.max_id = data.max_id;
 
 			},
 

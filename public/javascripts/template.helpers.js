@@ -25,6 +25,10 @@
 })(jQuery);
 
 
+
+
+
+
 var helpers = {
 	
 	formatUsername : function(string){
@@ -35,9 +39,9 @@ var helpers = {
 		return $( "<a>", attributes ).text( "@" + string ).outerHtml();
 	},
 	
+	
 	formatDate : function(string){
-		
-		
+		return string;
 	},
 
 	// Prepare a hash of helpers to convert urls and hashtags etc into links: (These are referenced from within the jQuery html template)
