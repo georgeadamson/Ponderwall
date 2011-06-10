@@ -1,0 +1,35 @@
+
+<section id="tweets-container">
+  
+  
+  
+</section>
+
+
+<script type="text/x-jquery-tmpl" id="template-for-tweet">
+
+  <div class="tweet" id="tweet-${id}" lang="${iso_language_code}" data-tweet-id="${id}" data-ui-timestamp="${ (new Date).getTime() }">
+    <div class="id">${id}</div>
+    <div class="text">{{html helpers.tweetify.clean(text) }}</div>
+    <div class="from_user">{{html helpers.formatUsername(from_user) }}</div>
+    <div class="profile_image"><img src="${profile_image_url}"/></div>
+    <div class="created_at">${created_at}</div>
+  </div>
+
+</script>
+
+<script type="text/x-jquery-tmpl" id="template-for-tweet-slot">
+
+  <div class="tweet-slot">
+    <%# {{tmpl "#template-for-tweet"}} %>
+  </div>
+
+</script>
+
+<script type="text/x-jquery-tmpl" id="template-for-tweets-container">
+
+  {{each(i,tweet) results}}
+    {{tmpl(tweet) "#template-for-tweet-slot"}}
+  {{/each}}
+
+</script>
