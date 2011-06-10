@@ -1,0 +1,84 @@
+
+<!-- Here's the tweet data we want to update the UI with... -->                  <!-- Eg: http://search.twitter.com/search.json?callback=myFn&q=%23dddsw -->
+
+myFn(
+{
+  results: [
+    {
+      from_user_id_str: "70874531",
+      profile_image_url: http://a1.twimg.com/profile_images/1243942424/A8d5tt6U_normal,
+      created_at: "Fri, 10 Jun 2011 15:35:02 +0000",
+      from_user: "bugail",
+      id_str: "79209969039327233",
+      metadata: {
+          result_type: "recent"
+      },
+      to_user_id: null,
+      text: "Only 15 hours and 25 minutes till #dddsw. Who's getting exited?",
+      id: 79209969039327230,
+      from_user_id: 70874531,
+      geo: null,
+      iso_language_code: "en",
+      to_user_id_str: null,
+      source: "&lt;a href=&quot;http://locomolabs.com&quot; rel=&quot;nofollow&quot;&gt;TweetComb&lt;/a&gt;"
+    },
+    {
+      from_user_id_str: "686761"
+      profile_image_url: http://a3.twimg.com/profile_images/1211980551/avatarpic-l_normal.png
+      created_at: "Fri, 10 Jun 2011 15:31:02 +0000"
+      from_user: "rikp"
+      id_str: "79208960753799168"
+      metadata: {
+          result_type: "recent"
+      }
+      to_user_id: null
+      text: "Arrived at HI Bristol North. #DDDSW"
+      id: 79208960753799170
+      from_user_id: 686761
+      geo: null
+      iso_language_code: "fr"
+      to_user_id_str: null
+      source: "&lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;"
+    }
+  ]
+}
+
+
+
+
+
+
+
+<!-- ...and this is the html we want to generate for each tweet: -->
+
+<div class="tweet" id="tweet-12" lang="en" data-tweet-id="12" data-ui-timestamp="123456">
+  <div class="id">12</div>
+  <div class="text">Bananas are great</div>
+  <div class="from_user">GeorgeAdamson</div>
+  <div class="profile_image"><img src="http://lovelyphoto/url"/></div>
+  <div class="created_at">Ages ago</div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- We could assemble the html from the JSON thingamajig: -->
+
+var data = "...the json object..."
+
+var html = '<div class="tweet" id="tweet-' + data. '" lang="${iso_language_code}" data-tweet-id="${id}" data-ui-timestamp="${ (new Date).getTime() }">
+  <div class="id">${id}</div>
+  <div class="text">{{html helpers.tweetify.clean(text) }}</div>
+  <div class="from_user">{{html helpers.formatUsername(from_user) }}</div>
+  <div class="profile_image"><img src="${profile_image_url}"/></div>
+  <div class="created_at">${created_at}</div>
+</div>
+
+
+
+

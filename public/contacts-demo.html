@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contacts demo</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+  <script type="text/javascript" src="/javascripts/jquery.tmpl.min.js"></script>
+</head>
+<body>
+  
+  <ul>
+    <!-- Contacts will go here! -->
+  </ul>
+
+  <script type="text/javascript">
+
+    jQuery(function($){
+    
+      // PASTE DATA HERE!
+
+      $("#contacts-template").tmpl(data).appendTo("UL");
+    
+    });
+
+  </script>
+
+
+  <script id="contacts-template" type="text/x-jquery-tmpl">
+
+    // PASTE TEMPLATE HERE!
+
+  </script>
+
+</body>
