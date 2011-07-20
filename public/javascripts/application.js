@@ -15,8 +15,8 @@
 
 			data    : { results: [] },
 			keyword : window.location.hash.replace(/^#/,''),
-			//url     : "http://search.twitter.com/search.json?callback=?",
-			url     : "/tweets/twitter_search.json?callback=?",
+			url     : "http://search.twitter.com/search.json?callback=?",
+			//url     : "/tweets/twitter_search.json?callback=?",
 
 
       // TODO: Make this smarter, eg reorganise the grid when window is resized.
