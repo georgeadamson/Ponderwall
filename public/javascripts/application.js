@@ -2,12 +2,11 @@
 	
 	// Ensure we have a keyword for searching tweets:
 	if( !window.location.hash || window.location.hash == '#' ){
-	  window.location.hash = 'dddsw';
+	  window.location.hash = 'nxtgenug';
 	}
 
   // Prevent my console calls from causing error when Firebug not installed:
   var console = window.console || { log:function(){} };
-
 
 
 	$(function(){
@@ -16,7 +15,8 @@
 
 			data    : { results: [] },
 			keyword : window.location.hash.replace(/^#/,''),
-			url     : "http://search.twitter.com/search.json?callback=?",
+			//url     : "http://search.twitter.com/search.json?callback=?",
+			url     : "/tweets/twitter_search.json?callback=?",
 
 
       // TODO: Make this smarter, eg reorganise the grid when window is resized.

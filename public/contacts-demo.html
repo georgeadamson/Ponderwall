@@ -2,10 +2,12 @@
 <html>
 <head>
   <title>Contacts demo</title>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+  <script type="text/javascript" src="/javascripts/jquery-1.6.1.js"></script>
   <script type="text/javascript" src="/javascripts/jquery.tmpl.min.js"></script>
 </head>
 <body>
+  
+  <h1>Epic contacts page demo</h1>
   
   <ul>
     <!-- Contacts will go here! -->
@@ -16,7 +18,8 @@
     jQuery(function($){
     
       // PASTE DATA HERE!
-
+      
+      
       $("#contacts-template").tmpl(data).appendTo("UL");
     
     });
@@ -27,7 +30,8 @@
   <script id="contacts-template" type="text/x-jquery-tmpl">
 
     <!-- PASTE TEMPLATE HERE! -->
-
+    
+    
   </script>
 
 </body>

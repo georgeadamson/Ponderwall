@@ -1,0 +1,8 @@
+
+<%# Wrap the json in a jsonp callback if one was specified in the url parameters: %>
+
+<%= "#{ @jsonp_callback }(" if @jsonp_callback %>
+
+  <%=raw IO.read('public/twitter-sample.json') %>
+
+<%= ");" if @jsonp_callback %>

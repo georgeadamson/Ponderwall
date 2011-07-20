@@ -1,6 +1,10 @@
 Ponderwall::Application.routes.draw do
   
+  # Route for fake twitter feed! (/tweets/twitter_search/json?callback=xyz)
+  match "tweets/twitter_search", :to => 'tweets#twitter_search', :format => :json
+  
   resources :tweets do as_routes end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
